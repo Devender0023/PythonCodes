@@ -13,12 +13,12 @@ def speed_test(fn):
 	return wrapper
 
 @speed_test
-def sum_nums():
+def sum_nums_gen():
 	return sum(x for x in range(90000000))
 
 @speed_test
-def sum_nums1():
+def sum_nums_list():
 	return sum([x for x in range(90000000)])
 
-print(sum_nums())
-print(sum_nums1())
+print(sum_nums_gen())
+print(sum_nums_list())
