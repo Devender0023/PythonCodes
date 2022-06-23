@@ -5,10 +5,11 @@ def my_func(func):
 		print("Have a nice day")
 	return wrapper
 
+@my_func
 def greet():
 	print("My name is Dev")
 
-greet = my_func(greet)
+# greet = my_func(greet)
 
 greet()
 greet()
