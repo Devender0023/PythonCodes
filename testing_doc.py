@@ -1,3 +1,5 @@
+from random import choice
+
 def add(a,b):
 	"""
 	>>> add(2,3)
@@ -5,8 +7,9 @@ def add(a,b):
 	>>> add(100,200)
 	20000
 	"""
-
-	return a * b
+	if not isinstance(a, int) and isinstance(b, int):
+		raise ValueError("Both numbers must be integers")
+	return a + b
 
 
 def return_day(num):
@@ -59,3 +62,8 @@ def number_compare(a, b):
 	elif a>b:
 		return "First is greater"
 	return "Second is greater"
+
+def laugh():
+	return choice(('lol', 'haha', 'tehehe'))
+
+
