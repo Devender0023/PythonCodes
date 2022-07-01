@@ -39,7 +39,3 @@ with open('Vehicle.pickle', 'rb') as file:
     Bike, Car = pickle.load(file)
     print(Bike)
     print(Car)
-
-
-
-
