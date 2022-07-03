@@ -1,0 +1,2 @@
+class User:
+	active_users = 0
