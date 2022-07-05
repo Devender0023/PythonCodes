@@ -1,6 +1,5 @@
-
 from random import choice
-
+import csv
 
 
 
@@ -43,15 +42,20 @@ def game(quotes):
                 count-=1
                 break
 
-    menu(quotes)
 
+def read_quotes():
+    with open("Quotes_data.csv") as file:
+        quotes = csv.reader(file)
+        next(quotes)
+        data = list(quotes)
+    return data
 
 
 def menu(quotes):
     choice = input("Would you like to play again (y/n): ")
     while (choice != 'n'):
         if choice == 'y':
-            game(quotes)
+           game(quotes)
         else:
             print("Wrong input..! Please try again!")
 
@@ -61,8 +65,7 @@ def menu(quotes):
 
 
 
-
-quotes = scraping()
+quotes = read_quotes()
+# quotes = scraping()
 print("Let's play a guess game!")
-print("Game starts here..")
 game(quotes)
