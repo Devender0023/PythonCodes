@@ -4,9 +4,10 @@ import csv
 
 
 def game(quotes):
+    print("again")
     quote = choice(quotes)
     count = 3
-    while(count > 0):
+    while(count >= 1):
         if count == 3:
             print(f'Gusses left {count}')
             print(f"Who is the author of this quote: {quote[0]}")
@@ -14,7 +15,7 @@ def game(quotes):
             if answer == quote[1]:
                 print("Great! You did it.")
                 count -= 1
-                menu(quotes)
+                return menu(quotes)
             else:
                 count-=1
                 continue
@@ -25,7 +26,7 @@ def game(quotes):
             if answer == quote[1]:
                 print("Great! You did it.")
                 count -=1
-                menu(quotes)
+                return menu(quotes)
             else:
                 count-=1
                 continue
@@ -36,11 +37,11 @@ def game(quotes):
             if answer == quote[1]:
                 print("Great! You did it.")
                 count -= 1
-                menu(quotes)
+                return menu(quotes)
             else:
                 print("Better Luck next time..")
                 count-=1
-                break
+                return menu(quotes)
 
 
 def read_quotes():
@@ -52,10 +53,11 @@ def read_quotes():
 
 
 def menu(quotes):
-    choice = input("Would you like to play again (y/n): ")
-    while (choice != 'n'):
-        if choice == 'y':
-           game(quotes)
+    choice = input("Would you like to play again (yes/no): ")
+    while (choice.lower() not in ("no","n")):
+        if choice.lower() in ("yes","y"):
+            print("Yes after No")
+            return game(quotes)
         else:
             print("Wrong input..! Please try again!")
 
@@ -66,6 +68,5 @@ def menu(quotes):
 
 
 quotes = read_quotes()
-# quotes = scraping()
-print("Let's play a guess game!")
+print("Let's play a game!")
 game(quotes)
