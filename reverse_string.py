@@ -13,19 +13,22 @@ def list_check(my_list):
         return True
     return False
 
+def new_list_check(my_list):
+    return all(type(l) == list for l in my_list)
 
-# print(list_check([[],[1],[2,3]]))
+# print(new_list_check([[],[1],[2,3]]))
 
 def remove_every_other(other_list):
     new_list = []
     for count,value in enumerate(other_list):
         if count%2 == 0:
             new_list.append(value)
-
-
     return new_list
 
-# print(remove_every_other([5,1,2,4,1]))
+def remove_every_other_(lst):
+    return [val for i,val in enumerate(lst) if i % 2 == 0]
+
+# print(remove_every_other_([5,1,2,4,1]))
 
 def sum_pairs(nums, num):
     new_nums = []
@@ -39,6 +42,18 @@ def sum_pairs(nums, num):
     return new_nums
 
 
+# print(sum_pairs([4, 2, 10, 5, 1], 15))
+
+def vowel_count(word):
+    vowel_dict = {}
+    for char in word:
+        if char.lower() in ('a','e','i','o','u'):
+            if char.lower() in vowel_dict.keys():
+                vowel_dict[char.lower()]+=1
+            else:
+                vowel_dict[char.lower()] = 1
+
+    return vowel_dict
 
 
-print(sum_pairs([4, 2, 10, 5, 1], 15))
+# print(vowel_count('Python'))
