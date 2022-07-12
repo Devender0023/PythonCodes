@@ -39,4 +39,23 @@ def truncate(sentence, num):
         return f'{sentence[:num-3]}...'
 
 
-print(truncate("Problem solving is the best!", 10))
+# print(truncate("Problem solving is the best!", 10))
+
+def runner_up(scores):
+    mx = max(scores[0], scores[1])
+    sec_mx = min(scores[0], scores[1])
+    num = len(scores)
+    for i in range(2, num):
+        if scores[i] > mx:
+            mx = scores[i]
+            sec_mx = mx
+        elif scores[i] < mx and scores[i] > sec_mx:
+            sec_mx = scores[i]
+        elif scores[i] == mx:
+            mx = scores[i]
+    print(sec_mx)
+
+
+print(runner_up([2,3,6,6,5]))
+
+
