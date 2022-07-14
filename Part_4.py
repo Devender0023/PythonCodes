@@ -19,4 +19,15 @@ def min_max_key(d):
     return [lst[0], lst[-1]]
 
 
-print(min_max_key({2:'a', 7:'b', 1:'c',10:'d',4:'e'}))
+# print(min_max_key({2:'a', 7:'b', 1:'c',10:'d',4:'e'}))
+
+def find_greater_numbers(lst):
+    count = 0
+    for idx in range(1,len(lst)):
+        for i in range(0, idx):
+            if lst[idx] > lst[i]:
+                count+=1
+    return count
+
+
+print(find_greater_numbers([]))
