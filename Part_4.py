@@ -7,10 +7,16 @@ def sum_up_diagonals(outer_list):
     #     sum += inner_list[-(index+1)]
     return sum
 
-print(sum_up_diagonals([
-  [ 1, 2, 3 ],
-  [ 4, 5, 6 ],
-  [ 7, 8, 9 ]
-]))
+# print(sum_up_diagonals([
+#   [ 1, 2, 3 ],
+#   [ 4, 5, 6 ],
+#   [ 7, 8, 9 ]
+# # ]))
 
-def min_max_key
+def min_max_key(d):
+    lst = [num for num in d.keys()]
+    lst.sort()
+    return [lst[0], lst[-1]]
+
+
+print(min_max_key({2:'a', 7:'b', 1:'c',10:'d',4:'e'}))
