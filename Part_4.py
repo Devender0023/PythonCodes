@@ -30,4 +30,24 @@ def find_greater_numbers(lst):
     return count
 
 
-print(find_greater_numbers([]))
+# print(find_greater_numbers([]))
+
+
+def two_oldest_ages(lst):
+    lst.sort()
+    return [lst[-2],lst[-1]]
+
+
+# print(two_oldest_ages([4,25,3,20,19,5]))
+
+
+def is_odd_string(word):
+    # sum = 0
+    # for char in word:
+    #     sum += ord(char)-96
+    total = sum((ord(c)-96) for c in word.lower())
+    if total % 2 !=0:
+        return True
+    return False
+
+print(is_odd_string('awesome'))
