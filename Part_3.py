@@ -47,8 +47,15 @@ def same_frequency(num1, num2):
     return False
 
 
-print(same_frequency(1212, 2211))
+# print(same_frequency(1212, 2211))
 
+def nth(lst, index):
+    if index < 0:
+        return lst[len(lst)+index]
+    return lst[index]
+
+
+print(nth(['a','b','c','d'],3))
 
 
 
