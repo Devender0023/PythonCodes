@@ -64,4 +64,15 @@ def three_odd_numbers(lst):
     return False
 
 
-print(three_odd_numbers([1,2,3,3,2]))
+# print(three_odd_numbers([1,2,3,3,2]))
+
+
+def mode(lst):
+    total = {key:lst.count(key) for key in lst}
+    keys = list(total.keys())
+    vals = list(total.values())
+    num = max(total.values())
+    return (keys[vals.index(num)])
+
+
+print(mode([2,4,1,2,3,3,4,4,5,4,4,6,4,6,7,4]))
