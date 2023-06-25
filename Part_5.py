@@ -1,4 +1,5 @@
 # from collections import deque
+from functools import wraps
 
 def valid_parentheses(String):
     count = 0
@@ -75,4 +76,57 @@ def mode(lst):
     return (keys[vals.index(num)])
 
 
-print(mode([2,4,1,2,3,3,4,4,5,4,4,6,4,6,7,4]))
+# print(mode([2,4,1,2,3,3,4,4,5,4,4,6,4,6,7,4]))
+
+
+def letter_counter(string):
+    def inner(char):
+        return string.lower().count(char)
+    return inner
+
+# counter = letter_counter('Amazing')
+# print(counter('a'))
+# print(counter('m'))
+#
+# counter2 = letter_counter('This Is Really Fun!')
+# print(counter2('i'))
+# print(counter2('t'))
+
+
+def once(fn):
+    fn.is_called = False
+
+    def inner(*args):
+        if not(fn.is_called):
+            fn.is_called=True
+            return fn(*args)
+    return inner
+
+
+
+
+# oneAddition = once(add)
+# print(oneAddition(2,2))
+# print(oneAddition(2,2))
+
+def next_prime():
+    count=2
+    all_primes = set()
+    while True:
+        for prime in all_primes:
+            if count%prime==0:
+                break
+        else:
+            all_primes.add(count)
+            yield count
+        count+=1
+
+
+
+primes = next_prime()
+print([next(primes) for i in range(25)])
+
+
+
+
+
